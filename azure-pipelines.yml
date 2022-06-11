@@ -1,4 +1,7 @@
 # Starter pipeline
+- task: NodeTool@0
+  inputs:
+    versionSpec: '16.x'
 # Start with a minimal pipeline that you can customize to build and deploy your code.
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
@@ -10,6 +13,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+- task: Npm@1
+  inputs:
+    command: 'install'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
