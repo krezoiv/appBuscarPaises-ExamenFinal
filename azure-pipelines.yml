@@ -15,7 +15,11 @@ pool:
 steps:
 - task: Npm@1
   inputs:
-    command: 'install'
+    command: 'custom'
+- task: Npm@1
+  inputs:
+    command: 'custom'
+    customCommand: 'run build'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
