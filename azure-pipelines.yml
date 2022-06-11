@@ -20,6 +20,13 @@ steps:
   inputs:
     command: 'custom'
     customCommand: 'run build'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Azure subscription 1(48faf7e9-23de-4e6e-9619-9e10f5b21273)'
+    appType: 'webApp'
+    WebAppName: 'busquedaPaises'
+    packageForLinux: '/Users/erickgarcia/Documents/GitHub/appBuscarPaises-ExamenFinal/dist'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
