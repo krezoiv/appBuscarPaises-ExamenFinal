@@ -1,0 +1,50 @@
+<p>Ingrese nombre del pais que desea consultar y de enter</p>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <form  (ngSubmit)="buscar()" autocomplete="off">
+            <input type="text"
+                   name="termino"
+                   class="form-control"
+                   [(ngModel)]="termino"
+                   placeholder="Buscar por pais..." />                 
+        </form>
+    </div>
+</div>
+
+<hr>
+
+<div
+*ngIf="hayError"    
+class="alert alert-danger">
+    No se encontro data relacionada a su busqueda {{termino}}
+</div>
+
+<div *ngIf="paises.length > 0" class="row">
+    <div class="col">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th> # </th>
+                    <th> Bandera </th>
+                    <th> Nombre </th>
+                    <th> Capital </th>
+                    <th> Poblacion </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pais of paises; let i = index">
+                    <td> {{ i + 1 }} </td>
+                    <td> <img class="small-flag" > {{ pais.flag }}</td>
+                    <td>{{ pais.name.common }}</td>
+                    <td>{{ pais.capital }}</td>
+                    <td>{{ pais.population | number }}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
